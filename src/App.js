@@ -61,6 +61,9 @@ export default () => {
       ))}
      </section>
 
+     <footer>
+      <h1>JLINS</h1>
+     </footer>
     </div>
   );
 }
