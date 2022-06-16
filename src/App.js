@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './App.css'
-import api from './api'
-import MovieRow from './components/MovieRow'
-import RaisedFilm from './components/RaisedFilm'
+import api from './components//Api/api'
+import MovieRow from './components/Movie row/MovieRow'
+import RaisedFilm from './components/Raised film/RaisedFilm'
+import Header from './components/Header/Header'
 
 
 
@@ -10,6 +11,7 @@ export default () => {
 
   const [movieList, setMovieList] = useState([]);
   const [RaisedFilmData, setRaisedFilmData] = useState(null)
+  const [blackHeader, setBlackHeader] = useState(false);
 
   useEffect(() => {
     const loadAll = async()=>{
@@ -29,8 +31,25 @@ export default () => {
     loadAll();
   }, []);
 
+  useEffect(()=>{
+    const scrollListener = ()=>{
+      if(window.scrollY > 20){
+        setBlackHeader(true)
+      } else {
+        setBlackHeader(false)
+      }
+    }
+    window.addEventListener('scroll', scrollListener);
+    return()=>{
+      window.removeEventListener('scroll', scrollListener);
+    }
+
+  },[]);
+
   return(
     <div className='page'>
+
+      <Header black={blackHeader}/>
 
     {RaisedFilmData &&
       <RaisedFilm item={RaisedFilmData}/>
@@ -41,6 +60,7 @@ export default () => {
        <MovieRow key={key} title={item.title} items={item.items} />
       ))}
      </section>
+
     </div>
   );
 }
