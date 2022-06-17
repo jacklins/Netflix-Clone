@@ -62,8 +62,16 @@ export default () => {
      </section>
 
      <footer>
-      <h1>JLINS</h1>
+      <p className='logo'>jlins</p>
      </footer>
+           
+          { movieList.length <= 0 && 
+        <div className='loading'>
+          <p className="loading logo"> jlins</p>
+         
+        </div>
+          }
+
     </div>
   );
 }

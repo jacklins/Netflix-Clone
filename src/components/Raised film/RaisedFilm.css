@@ -85,3 +85,32 @@
     font-size: 18px;
 
 }
+
+@media (max-width:760px){
+    .raised{
+        height: 80vh;
+    }
+
+    .raised--name{
+        font-size:40px;
+    }
+
+    .raised--info{
+        font-size: 16px;
+    }
+
+    .raised--description{
+        font-size: 14px;
+        max-width: 100%;
+        margin-right: 30px;
+    }
+
+    .watchButton, .listButton{
+        font-size: 16px;
+
+    }
+
+    .raised--genres{
+        font-size: 14px;
+    }
+}
